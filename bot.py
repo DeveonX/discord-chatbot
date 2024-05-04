@@ -67,7 +67,7 @@ async def bot_chat(message):
 
 async def bot_reply(message, user_to_mention):
     async with message.channel.typing():
-            response = pika.send_message(f"{message.content}\nWhat should i reply to this")
+            response = pika.send_message(f"{message.content}\nWhat should i reply to this, just tell the message nothing else")
             # reply to the person with response
             await message.reply(f"Since {user_to_mention} is too {random.choice(random_slur)} to reply, I will do it for them:\n{response}")
 

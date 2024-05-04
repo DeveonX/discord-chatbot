@@ -75,6 +75,9 @@ class Chat:
             self.message_count = 0
           response = self.chat.send_message(message)
           self.message_count += 1
+          # if respponse contains something between <> remove them
+          if "<" in response.text:
+            response.text = response.text.split("<")[0]
           return response.text
         except Exception as e:
           self.chat = self.model.start_chat()
